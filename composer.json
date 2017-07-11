@@ -2,6 +2,7 @@
     "name": "highwire/drupal-psr-16",
     "description": "Convert Drupal 8 Cache objects to PSR-16 compliant cache objects",
     "type": "library",
+    "version": "1.0.0", 
     "license": "GPLv3",
     "keywords": [
         "drupal",
