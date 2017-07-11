@@ -11,11 +11,11 @@ class Cache implements \Psr\SimpleCache\CacheInterface {
 
   /**
     * @param \Drupal\Core\Cache\CacheBackendInterface $drupal_cache
-    *   The drupal cache backend to convert to PSR-6
+    *   The drupal cache backend to convert to PSR-16
     * 
     * @example
     *   $drupalcache = \Drupal::cache('mybin');
-    *   $psr6cache = new \HighWire\DrupalPSR16\Cache($drupalcache);
+    *   $psr16cache = new \HighWire\DrupalPSR16\Cache($drupalcache);
     */
   public function __construct(\Drupal\Core\Cache\CacheBackendInterface $drupal_cache) {
     $this->drupal_cache = $drupal_cache;
