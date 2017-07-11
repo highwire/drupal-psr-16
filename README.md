@@ -32,12 +32,15 @@ services:
     tags:
       - { name: cache.bin }
     factory: cache_factory:get
-    arguments: [hwbin]
+    arguments: [mybin]
   psr16.mybin: # PSR 16 service that returns a bin as a PSR-16 compliant object
     class: HighWire\DrupalPSR16\Cache
     arguments: ['@cache.mybin']
+  psr16.default: # PSR 16 service that returns the default bin as a PSR-16 compliant object
+    class: HighWire\DrupalPSR16\Cache
+    arguments: ['@cache.default']
   3rdparty.library: # 3rd Party Library that takes a PSR-16 compliant cache controller
-    class: Random\Third\Party\Library
+    class: Some\Third\Party\Library
     arguments: ['@some.other.service']
     calls:
       - [setCache, ['@psr16.mybin']]
