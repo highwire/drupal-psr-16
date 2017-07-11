@@ -4,8 +4,19 @@ namespace HighWire\DrupalPSR16;
 
 class Cache implements \Psr\SimpleCache\CacheInterface {
 
+  /**
+    * @var \Drupal\Core\Cache\CacheBackendInterface
+    */
   protected $drupal_cache;
 
+  /**
+    * @param \Drupal\Core\Cache\CacheBackendInterface $drupal_cache
+    *   The drupal cache backend to convert to PSR-6
+    * 
+    * @example
+    *   $drupalcache = \Drupal::cache('mybin');
+    *   $psr6cache = new \HighWire\DrupalPSR16\Cache($drupalcache);
+    */
   public function __construct(\Drupal\Core\Cache\CacheBackendInterface $drupal_cache) {
     $this->drupal_cache = $drupal_cache;
   }
