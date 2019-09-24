@@ -6,7 +6,7 @@ Convert Drupal 8 Cache objects to PSR-16 compliant cache objects
 
 ## Installation
 ```bash
-composer require highwire\drupal-psr-16
+composer require highwire/drupal-psr-16
 ```
 
 
