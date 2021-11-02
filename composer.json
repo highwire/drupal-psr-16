@@ -15,12 +15,6 @@
             "email": "patrick.d.hayes@gmail.com"
         }
     ],
-    "repositories": [
-        {
-          "type": "git",
-          "url": "https://github.com/php-fig/simple-cache.git"
-        }
-    ],
     "autoload": {
         "psr-4": {
             "HighWire\\DrupalPSR16\\": "src/"
