@@ -12,7 +12,7 @@ class Cache implements \Psr\SimpleCache\CacheInterface {
   /**
     * @param \Drupal\Core\Cache\CacheBackendInterface $drupal_cache
     *   The drupal cache backend to convert to PSR-16
-    * 
+    *
     * @example
     *   $drupalcache = \Drupal::cache('mybin');
     *   $psr16cache = new \HighWire\DrupalPSR16\Cache($drupalcache);
@@ -68,7 +68,7 @@ class Cache implements \Psr\SimpleCache\CacheInterface {
     */
   public function getMultiple($keys, $default = null) {
     $result = array();
-    $k = $keys;
+    $k = ($keys instanceof \Traversable) ? iterator_to_array($keys) : (array) $keys;
     $caches = $this->drupal_cache->getMultiple($k);
     foreach ($keys as $key) {
       if (!empty($caches[$key])) {
@@ -102,7 +102,9 @@ class Cache implements \Psr\SimpleCache\CacheInterface {
     * {@inheritdoc}
     */
   public function deleteMultiple($keys) {
-    $this->drupal_cache->deleteMultiple($keys);
+    $this->drupal_cache->deleteMultiple(
+      ($keys instanceof \Traversable) ? iterator_to_array($keys) : (array) $keys
+    );
     return true;
   }
 
